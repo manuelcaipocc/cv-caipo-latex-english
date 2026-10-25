@@ -1,0 +1,28 @@
+% Lengths (if not already defined)
+\newlength{\RefDatea}
+\newlength{\RefDesca}
+\newlength{\RefCerta}
+
+\setlength{\RefDatea}{1.4cm}   % date column
+\setlength{\RefCerta}{0.4cm}   % certificate column [C]
+\setlength{\RefDesca}{\dimexpr(\textwidth - \RefDate - \RefCert - 1.5em)\relax}
+
+\noindent
+\begin{tabular}{@{}%
+  >{\raggedleft\arraybackslash}m{\RefDate}%
+  @{\hspace{0.4em}}%
+  >{\RaggedRight\arraybackslash}m{\RefDesc}%
+  @{\hspace{0.4em}}%
+  >{\centering\arraybackslash}m{\RefCert}@{}}
+
+% Scholarship 2 — SERESSA
+\footnotesize 2019 & 
+\footnotesize \textbf{Research Grant – SERESSA 2019}, Spain. 
+15th International School on Radiation Effects. & \\[0.2em]
+
+% Scholarship 1 — Bachelor
+\footnotesize 2017 & 
+\footnotesize \textbf{President of the Republic Scholarship – Peru}.  
+Full scholarship awarded for academic excellence (Top 1\%). & 
+
+\end{tabular}

@@ -1,0 +1,88 @@
+% % Lengths (if not already defined)
+% \newlength{\RefDate}
+% \newlength{\RefDesc}
+% \newlength{\RefCert}
+
+% \setlength{\RefDate}{1.4cm}   % date column
+% \setlength{\RefCert}{0.4cm}   % certificate column [Z]
+% \setlength{\RefDesc}{\dimexpr(\textwidth - \RefDate - \RefCert - 1.5em)\relax}
+
+% \noindent
+% \begin{tabular}{@{}%
+%   >{\raggedleft\arraybackslash}m{\RefDate}%
+%   @{\hspace{0.4em}}%
+%   >{\RaggedRight\arraybackslash}m{\RefDesc}%
+%   @{\hspace{0.4em}}%
+%   >{\centering\arraybackslash}m{\RefCert}@{}}
+
+% % Ref 1 — PhD Recommendation
+% \footnotesize 2025 & 
+% \footnotesize \textbf{Prof. Dr.-Ing. G. Ketterer}, Furtwangen University of Applied Sciences, Dean of Studies M.Sc. \emph{Advanced Precision Engineering}.  
+% Recommendation for PhD studies. & 
+% \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/recommendations/Herr_Ketterer_recommendation.pdf} \\[0.2em]
+
+% % Ref 2 — Career / Advanced Studies
+% \footnotesize 2023 & 
+% \footnotesize \textbf{T. Gaddie}, Freeport-McMoRan, Data Scientist III, Metals Optimization.  
+% Reference for career development \& advanced studies. & 
+% \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/recommendations/Empfehlungsschreiben_travis_gaddie.pdf} \\[0.2em]
+
+% % Ref 3 — Master Recommendation
+% \footnotesize 2021 & 
+% \footnotesize \textbf{Dr. L. Rodríguez B.}, UNSA, Director of Mechanical Engineering \& Bachelor's Thesis Supervisor.  
+% Recommendation for Master's studies. & 
+% \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/recommendations/recommendation_unsa.pdf}
+% \\[-0.5em]
+
+% \multicolumn{3}{@{}r@{}}{\tiny \textcolor{linksoft}{\textit{Note:} \tiny[Z] Letter of Recommendation / Reference Letter}} \\
+% \end{tabular}
+
+
+
+% Lengths (if not already defined)
+\newlength{\RefDate}
+\newlength{\RefDesc}
+\newlength{\RefCert}
+
+\setlength{\RefDate}{1.4cm}
+\setlength{\RefCert}{0.4cm}
+\setlength{\RefDesc}{\dimexpr(\textwidth - \RefDate - \RefCert - 1.5em)\relax}
+
+\noindent
+\begin{tabular}{@{}%
+  >{\raggedleft\arraybackslash}m{\RefDate}%
+  @{\hspace{0.4em}}%
+  >{\RaggedRight\arraybackslash}m{\RefDesc}%
+  @{\hspace{0.4em}}%
+  >{\centering\arraybackslash}m{\RefCert}@{}}
+
+% Ref 1 — Thesis Advisor
+\footnotesize 2026 &
+\footnotesize \textbf{Dr. Jörn Kretschmer, M.Sc.}, Hochschule Furtwangen University.  
+Supervisor of my Master's thesis — Recommendation for PhD studies \href{mailto:Joern.Kretschmer@hs-furtwangen.de}{Joern.Kretschmer@hs-furtwangen.de}. &
+\cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/recommendations/Dr_Kretschmer_Letterrecommendation_MCaipo.pdf}
+\\[0.2em]
+
+% Ref 2 — PhD Recommendation
+\footnotesize 2025 &
+\footnotesize \textbf{Prof. Dr.-Ing. G. Ketterer}, Hochschule Furtwangen University, Dean of Studies M.Sc. \emph{Advanced Precision Engineering}.  
+Recommendation for PhD studies — \href{mailto:gunter.ketterer@hs-furtwangen.de}{gunter.ketterer@hs-furtwangen.de}. &
+\cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/recommendations/Herr_Ketterer_recommendation.pdf}
+\\[0.2em]
+
+% Ref 3 — Career / Industry
+\footnotesize 2023 &
+\footnotesize \textbf{Travis Gaddie}, Freeport-McMoRan, Data Scientist III, Metals Optimization.  
+Reference for career development and advanced studies — \href{mailto:tgaddie@fmi.com}{tgaddie@fmi.com}. &
+\cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/recommendations/Empfehlungsschreiben_travis_gaddie.pdf}
+\\[0.2em]
+
+% Ref 4 — Bachelor Supervisor
+\footnotesize 2021 &
+\footnotesize \textbf{Dr. L. Rodríguez B.}, National University of San Agustín (UNSA), Director of Mechanical Engineering \& Bachelor's thesis supervisor.  
+Recommendation for Master's studies — \href{mailto:lrodriguez4@unsa.edu.pe}{lrodriguez4@unsa.edu.pe}. &
+\cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/recommendations/recommendation_unsa.pdf}
+\\[-0.5em]
+
+\multicolumn{3}{@{}r@{}}{\tiny \textcolor{linksoft}{\textit{Note:} [Z] Reference letter}} \\
+\end{tabular}

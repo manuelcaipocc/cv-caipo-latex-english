@@ -1,0 +1,37 @@
+% Define lengths for a single column
+\newlength{\AwardDate}
+\newlength{\AwardDesc}
+\newlength{\AwardCert}
+
+\setlength{\AwardDate}{1.4cm}   % date column
+\setlength{\AwardCert}{0.4cm}   % certificate column [C]
+\setlength{\AwardDesc}{\dimexpr(\textwidth - \AwardDate - \AwardCert - 1.5em)\relax}
+
+\noindent
+\begin{tabular}{@{}%
+  >{\raggedleft\arraybackslash}m{\AwardDate}%
+  @{\hspace{0.4em}}%
+  >{\RaggedRight\arraybackslash}m{\AwardDesc}%
+  @{\hspace{0.4em}}%
+  >{\centering\arraybackslash}m{\AwardCert}@{}}
+
+% Award 1 — Triple Award Freeport
+\footnotesize 2022 & 
+\footnotesize \textbf{Innova 2022 – Triple Award Winner} (1st Place Digital Transformation, Showroom \& President’s Award) – Freeport-McMoRan.  
+\emph{Machine \& Deep Learning Life Data Analysis} with measurable impact (+1.5\% asset availability, ≈>\$10M USD/year). &
+\cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/rewards/rewards_innova.pdf} 
+\\[0.2em]
+
+% Award 2 — Outstanding Thesis
+\footnotesize 2021 & 
+\footnotesize \textbf{Outstanding Bachelor's Thesis Award} – Engineering Sciences. &
+\cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/rewards/Public_contratulations_thesis.pdf} \\[0.2em]
+
+% Award 3 — Top Student
+\footnotesize 2019 & 
+\footnotesize \textbf{Top Graduate (Top 1\%)} – Mechanical Engineering, National University of San Agustín, Peru. &
+\cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/unsa_bachelor/Beste_note_student.pdf} \\[-0.5em]
+
+\multicolumn{3}{@{}r@{}}{\tiny \textcolor{linksoft}{\textit{Note:} \tiny[Z] Certificate / Letter}} \\
+
+\end{tabular}

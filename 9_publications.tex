@@ -1,0 +1,27 @@
+% Define lengths for a single column
+\newlength{\PubDate}
+\newlength{\PubDesc}
+\newlength{\PubLink}
+
+\setlength{\PubDate}{1.4cm}
+\setlength{\PubLink}{0.4cm}
+\setlength{\PubDesc}{\dimexpr(\textwidth - \PubDate - \PubLink - 1.5em)\relax}
+
+\noindent
+\begin{tabular}{@{}%
+  >{\raggedleft\arraybackslash}m{\PubDate}%
+  @{\hspace{0.4em}}%
+  >{\RaggedRight\arraybackslash}m{\PubDesc}%
+  @{\hspace{0.4em}}%
+  >{\centering\arraybackslash}m{\PubLink}@{}}
+
+% Publication 1
+\footnotesize 02.2026 &
+\footnotesize \textbf{Explainable Edge-AI Framework for Fault Diagnosis and Remaining Useful Life Prediction in Hydraulic Systems}. 
+Submitted to \emph{Discover Mechanical Engineering} (Springer Nature).  
+Currently under peer review. &
+\cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/publications/Explainable_Edge_AI_Framework_for_Fault_Diagnosis_and_Remaining_Useful_Life_Springer_template.pdf} \\[-0.5em]
+
+\multicolumn{3}{@{}r@{}}{\tiny \textcolor{linksoft}{\textit{Note:} \tiny[Z] Preprint}} \\
+
+\end{tabular}

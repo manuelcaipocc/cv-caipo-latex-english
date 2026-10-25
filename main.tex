@@ -1,0 +1,347 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[top=1.5cm, bottom=0.5cm, left=1.5cm, right=2cm]{geometry}
+
+\usepackage{graphicx}
+% \usepackage{url}
+% \usepackage{palatino}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+
+\usepackage{array}
+\usepackage{ragged2e}        % necesario para \RaggedRight en \newcolumntype
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+
+% \usepackage{color}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{yaac-icons}
+\usepackage[table]{xcolor}
+\usepackage{amssymb}
+\usepackage{booktabs}
+
+
+\usepackage{multirow}
+
+% \newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
+\newcommand{\topbottomstrut}{\rule{0pt}{1.1em}} % “strut” para altura interna
+\setlength{\extrarowheight}{0pt}
+\renewcommand\arraystretch{1}
+
+\usepackage[framemethod=tikz]{mdframed} % dibuja marcos finos y limpios
+
+% \textheight=9.75in
+\raggedbottom
+\setlength{\tabcolsep}{0in}
+\renewcommand{\labelitemii}{$\circ$}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+\renewcommand\arraystretch{1}
+
+\usepackage{array,graphicx,multirow,ragged2e}
+\usepackage[table]{xcolor} % lädt colortbl mit
+
+\definecolor{background}{RGB}{216,228,236}
+\definecolor{mygrey}{gray}{0.75}
+\definecolor{myblue}{RGB}{0,40,70}
+\definecolor{lightgrey}{RGB}{240,240,240}
+\definecolor{accent}{RGB}{0,140,200} % azul acento para el degradado/bandas finas
+\definecolor{qrblue}{RGB}{0,42,68} 
+\definecolor{cvbackgroundgray}{RGB}{235,235,235}
+\definecolor{linksoft}{RGB}{30,100,160} % azul más claro
+\definecolor{linksoft2}{RGB}{100,160,220}
+
+\colorlet{symbolcolor}{linksoft}
+\colorlet{linkcolor}{linksoft}
+
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = linksoft,
+  urlcolor   = linksoft,
+  citecolor  = linksoft,
+}
+
+% \hypersetup{
+%   colorlinks = true,
+%   linkcolor  = linksoft,
+%   urlcolor   = linksoft,
+%   citecolor  = linksoft,
+%   pdftitle={Manuel Caipo - CV},
+%   pdfauthor={Manuel Caipo},
+%   pdfsubject={Curriculum Vitae},
+%   unicode=true,
+%   bookmarksopen=false,
+%   pdfstartview=FitH,
+%   pdfpagemode=UseNone,
+%   breaklinks=true
+% }
+
+\usepackage{fancyhdr}
+\usepackage{lastpage} % solo si quieres “Página X de Y”
+
+\pagestyle{empty}
+
+
+\newmdenv[
+  linecolor=mygrey,           % o black
+  linewidth=0.6pt,
+  leftline=true,
+  rightline=false, topline=false, bottomline=false,
+  innerleftmargin=8pt,
+  innerrightmargin=0pt,
+  innertopmargin=0pt,         % <-- sin acolchado arriba
+  innerbottommargin=0pt,
+  skipabove=0pt, skipbelow=0pt
+]{expblock}
+
+
+
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}} % texto pegado izquierda
+\newcolumntype{R}[1]{>{\RaggedLeft\arraybackslash}p{#1}} 
+
+
+
+% fecha con ajuste vertical opcional: \datecell[<desplazamiento>]{<texto>}
+\newcommand{\datecell}[2][0pt]{%
+  \raisebox{#1}{%
+    \parbox[t]{\datecol}{\raggedleft\textbf{#2}\strut}%
+  }%
+}
+
+% En el preámbulo (para viñetas cuadradas más pequeñas)
+%\renewcommand{\labelitemi}{\tiny$\blacksquare$}
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{calc,shadows.blur,decorations.pathmorphing,fadings}
+\usetikzlibrary{shadings}
+\usepackage{eso-pic}      % para dibujar sobre la página
+\usepackage{qrcode}       % para generar el código QR
+
+
+\usepackage{needspace} % para reservar espacio y evitar saltos
+
+
+\newcommand{\isep}{-2 pt}
+\newcommand{\lsep}{-0.5cm}
+\newcommand{\lsepe}{-0.4cm}
+\newcommand{\psep}{-0.6cm}
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+
+\newcommand{\sq}[1]{\raisebox{0.25ex}{\rule{#1}{#1}}}
+
+% Tamaño recomendado: 0.45ex–0.70ex (prueba y elige)
+\setlist[itemize]{%
+  label=\sq{0.65ex},   % tamaño de la viñeta (más pequeña que 0.75ex)
+  labelsep=0.4em,     % espacio viñeta–texto (reduce si quieres aún más: 0.3em)
+  leftmargin=0.5em,    % sangría del bloque (reduce “espacio antes” de la viñeta)
+  labelindent=0pt,     % empuje extra de la viñeta (déjalo 0 salvo que quieras mover solo el símbolo)
+  itemsep=1pt,         % espacio entre ítems
+  parsep=0pt,          % sin espacio entre párrafos internos
+  topsep=0.05pt,          % espacio antes y después de la lista
+  partopsep=0pt        % sin extra por empezar párrafo
+}
+
+
+
+% --- en el preámbulo ---
+\newlength{\framepad}
+\setlength{\framepad}{8pt} % el mismo padding que quieres para ambas cajas
+
+% helper para cajas a todo el ancho, perfectamente alineadas
+\newcommand{\FullColorBox}[2]{%
+  \begingroup
+  \setlength{\fboxsep}{\framepad}%
+  \noindent\colorbox{#1}{%
+    \parbox{\dimexpr\textwidth\fboxsep\relax}{#2}%
+  }%
+  \endgroup
+}
+
+% --- Definición de resheading ---
+% \newcommand{\resheading}[1]{%
+%   \begingroup
+%   \setlength{\fboxsep}{6pt}%
+%   \noindent\colorbox{background}{%
+%     \parbox{\dimexpr\linewidth-0.01\fboxsep\relax}{%
+%       \footnotesize\textbf{\textcolor{myblue}{#1}}%
+%     }%
+%   }%
+%   \endgroup
+% }
+
+% --- Definición de resheading para CV (sin saltos de página) ---
+\newcommand{\resheading}[1]{%
+  \phantomsection % Crea el ancla para el link sin saltar de página
+  \addcontentsline{toc}{section}{#1} % Agrega el título al árbol del PDF
+  \begingroup
+  \setlength{\fboxsep}{6pt}%
+  \noindent\colorbox{background}{%
+    \parbox{\dimexpr\linewidth-0.01\fboxsep\relax}{%
+      \footnotesize\textbf{\textcolor{myblue}{#1}}%
+    }%
+  }%
+  \endgroup
+}
+
+
+
+\newlength{\myPad}
+\setlength{\myPad}{0pt} % padding que quieras
+
+% Caja a todo el ancho con relleno
+\newcommand{\fullpadbox}[2]{% #1=color, #2=contenido
+  \begingroup
+  \setlength{\fboxsep}{\myPad}% controla el padding
+  \noindent
+  \colorbox{#1}{%
+    \parbox{\dimexpr\linewidth+3\fboxsep\relax}{#2}%
+  }%
+  \endgroup
+}
+
+
+% --- Topbar limpio, angosto y con QR a juego ---
+\newcommand{\FancyTopbar}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    % Alturas: más angosto y pegado arriba
+    \def\hOne{6mm}      % altura franja principal (antes 8mm)
+    \def\hTwo{12mm}     % alcance piezas diagonales (antes 16mm)
+    \def\overshoot{0.8pt} % evita micro-hueco en el borde superior
+
+    % Color del QR (ajústalo si quieres más contraste)
+    \colorlet{qrcolor}{myblue!15!white}
+
+    % Franja sólida superior (con overshoot)
+    \fill[myblue]
+      ($(current page.north west)+(0,\overshoot)$) rectangle
+      ($(current page.north east)+(0,-\hOne)$);
+
+    % Pieza diagonal clara (efecto geométrico, sin líneas)
+    \path[fill=background]
+      ($(current page.north east)+(0,-\hOne)$) --
+      ($(current page.north east)+(-6.2cm,-\hOne)$) --
+      ($(current page.north east)+(-4.6cm,-\hTwo)$) --
+      ($(current page.north east)+(0,-\hTwo)$) -- cycle;
+
+    % Transición sutil (puedes eliminarla si quieres 100% plano)
+    \path[shade, left color=accent, right color=myblue, opacity=0.85]
+      ($(current page.north east)+(-6.2cm,-\hOne)$) --
+      ($(current page.north east)+(-10.5cm,-\hOne)$) --
+      ($(current page.north east)+(-9.0cm,-\hTwo)$) --
+      ($(current page.north east)+(-4.6cm,-\hTwo)$) -- cycle;
+
+
+  \end{tikzpicture}%
+}
+
+\newcommand{\FancyQRBottom}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    % color del QR: en sintonía con tus enlaces (linksoft) o con myblue
+    \colorlet{qrcolor}{linksoft} % o: \colorlet{qrcolor}{myblue!20!white}
+
+    % Nodo en la esquina inferior derecha, con pequeño margen interior
+    \node[
+      anchor=south east,
+      inner sep=1mm,
+      fill=white,
+      draw=qrcolor,
+      line width=0.45pt,
+      rounded corners=1mm
+    ] at ($(current page.south east)+(-4mm,4mm)$) {%
+      \begingroup
+        \color{qrcolor}
+        \qrcode[height=10mm]{https://manuelcaipocc.github.io/}%
+      \endgroup
+    };
+  \end{tikzpicture}%
+}
+
+\makeatletter
+\AddToHook{shipout/foreground}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    % Ajusta el + (0,8mm) si lo quieres más alto/bajo
+    \node[anchor=south, inner sep=0pt] 
+      at ($(current page.south)+(0,8mm)$)
+      {\footnotesize \textcolor{myblue}{\thepage}};
+  \end{tikzpicture}%
+}
+
+% ===== Macro para el enlace de certificado =====
+\newcommand{\cert}[1]{\raisebox{0.30ex}{\href{#1}{\tiny [Z]}}}
+
+% ===== Macro para instituciones con enlace =====
+\newcommand{\inst}[2]{\href{#1}{#2}}
+% --- Aplica en todas las páginas (o usa shipout/firstpage si solo la primera) ---
+% \AddToHook{shipout/foreground}{\FancyTopbar}
+% \AddToHook{shipout/foreground}{\FancyQRBottom}
+
+\AddToHook{shipout/background}{\FancyTopbar}
+\AddToHook{shipout/background}{\FancyQRBottom}
+
+\makeatother
+% ----------------------------------------------------------------
+
+\begin{document}
+
+\input{0_personal_data}
+
+\vspace{-0.4em}
+
+\input{1_profile_summary}
+
+\vspace{0.2em}
+
+
+% ======= EXPERIENCE (same width as \textwidth) =======
+
+\resheading{PROFESSIONAL EXPERIENCE}
+
+\vspace{-0.25em}
+\noindent
+\input{2_experience}
+
+\newpage
+
+
+\resheading{TECHNICAL SKILLS}
+\vspace{0.2em}
+
+\input{3_tech_skills}
+
+\vspace{0.2em}
+
+\resheading{PUBLICATIONS}\\[\lsepe]
+\vspace{0.4em}
+
+\input{9_publications}
+% ========= EDUCATION =========
+\resheading{EDUCATION}\\[\lsepe]
+
+\vspace{1em}
+
+\input{4_academic}
+
+\resheading{AWARDS \& HONORS}
+
+\input{5_rewards}
+
+
+% ====== REFERENCES (ATS-optimized) ======
+\resheading{REFERENCES}
+
+\input{6_recommendation}
+
+% Below AWARDS & HONORS
+\resheading{SCHOLARSHIPS \& GRANTS}
+
+\input{7_scholarship}
+
+\resheading{ADDITIONAL COURSES}
+
+\input{8_courses}
+
+\end{document}

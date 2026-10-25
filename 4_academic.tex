@@ -1,0 +1,93 @@
+% ===== Define lengths =====
+\newlength{\colA}
+\newlength{\colB}
+\newlength{\colC}
+\newlength{\colD}
+
+\setlength{\colA}{2.4cm}  % Date
+\setlength{\colD}{0.3cm}  % Column for [i], [ii], etc.
+\setlength{\colC}{1.5cm}  % Final grade
+\setlength{\colB}{\dimexpr\textwidth - \colA - \colC - \colD - 3em\relax} % Main content
+
+% ===== TABLE =====
+\noindent
+\begin{tabular}{@{}%
+  >{\centering\arraybackslash}m{\colA}      % Date (vertically centered, right aligned)
+  @{\hspace{1em}}%
+  >{\raggedleft\arraybackslash}m{\colD}      % [i], [ii] (vertically centered, right aligned)
+  @{\hspace{0.3em}}%
+  >{\RaggedRight\arraybackslash}m{\colB}     % Content (vertically centered, left aligned)
+  @{\hspace{1em}}%
+  >{\raggedleft\arraybackslash}m{\colC}      % Grade (vertically centered, right aligned)
+@{}}
+
+
+%---------- MSc 1 ----------
+\footnotesize 10.2025 -- Today &
+\raisebox{0.28ex}{\href{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/uni_ulm_master/Transcript_of_Records_MSc_Computational_Science_Manuel_Caipo.pdf}{\tiny[i]}} &
+\footnotesize \textbf{Advanced Graduate Coursework  – Computational Science and Engineering} &
+\footnotesize — \\[-0.15em]
+& &
+
+\footnotesize \textit{Focus: Numerical Optimization, High-Performance Computing, Theoretical Computer Science.} \\[-0.15em]
+
+& & 
+\footnotesize \textbf{ \href{https://www.uni-ulm.de/en/study/study-at-ulm-university/study-programmes/course-information/course/computational-science-and-engineering-master/}{Ulm University, Ulm, Germany }}& \\[-0.15em]
+
+% ---------- MSc 2 ----------
+\footnotesize 09.2024 -- 03.2026 &
+\raisebox{0.28ex}{\href{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/hfu_master/Transcript_of_Records_MSc_Advanced_Engineering_Manuel_Caipo.pdf}{\tiny[i]}} &
+\footnotesize \textbf{Master of Science – Advanced Precision Engineering} &
+\footnotesize 1,59\\[-0.15em] &  &
+\footnotesize \textbf{\href{https://www.hs-furtwangen.de/studium/studiengaenge/advanced-precision-engineering-master}{Furtwangen University of Applied Sciences, Villingen-Schwenningen, Germany}}& \\[-0.15em]&
+\raisebox{1.55ex} {\href{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/hfu_master/M_Sc__Thesis_APE_Manuel_Caipo.pdf}{\tiny[ii]}} &
+\footnotesize Thesis: Fluid 4.0-compliant framework for digital representation and graph-based neural modeling. & \\[-0.5em]
+
+% ---------- Postgraduate ----------
+\footnotesize 06.2021 -- 02.2022 &
+\raisebox{0.28ex}{\href{https://siucarne.sunedu.gob.pe/autoridades/informacion-solicitud?Guid=137d2700-4dc5-47dd-8ae4-1192ba5a66b9\&Dato=Z2d6Q0RveUdMTTdJTWtjK2piZ1pBVXUrUjJTV1VWNnVqUFpzR3FST2dlbz0\%3D}{\tiny[i]}} &
+\footnotesize \textbf{Postgraduate Diploma – Machine Learning \& Deep Learning} &
+\textcolor{mygrey}{\tiny [Top 5\,\%]}   \footnotesize 19.6/20.0\\[-0.6em]& &
+\footnotesize \textbf{\href{https://dc.ucsp.edu.pe/postgrado/diplomado-machine-learning/}{Universidad Católica San Pablo, Arequipa, Peru}}& \\[-0.5em]
+
+% ---------- Bachelor ----------
+\footnotesize 03.2015 -- 12.2019 &
+\raisebox{0.28ex}{\href{https://siucarne.sunedu.gob.pe/autoridades/informacion-solicitud?Guid=f37661dd-9383-4532-8e95-53ce4a8a7fc9\&Dato=aUhGL09TekErTE51eUIvb2VKTERYbE9iVjloaUdFN05xMUVkaStPS3Q0WT0\%3D}{\tiny[i]}}&
+\footnotesize \textbf{Bachelor – Mechanical Engineering} &
+\textcolor{mygrey}{\tiny [Top 1\,\%]}   \footnotesize 15.2/20.0\\[-0.7em]
+& &
+\footnotesize \textbf{ \href{https://www.unsa.edu.pe/}{National University of San Agustín, Arequipa, Peru}} & \\[-0.15em]
+&\raisebox{0.28ex}{\href{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/unsa_bachelor/Anerkennung_maschinenbau_manuel_caipo.pdf}{\tiny[ii]}} &
+\footnotesize \textit{Official Recognition by the German State} & \\
+% & \raisebox{0.28ex}{\href{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/unsa_bachelor/Beste_note_student.pdf}{\tiny[iii]}} &
+% \footnotesize \textit{Award for the highest academic performance.} & \\
+&\raisebox{1.55ex}{\href{https://zenodo.org/records/17233982}{\tiny[iv]}} &
+\footnotesize Thesis: Design of a 350 TPH copper concentrate conveyor belt with automatic hydraulic tensioning system and loading hopper & \\[-0.5em]
+
+% % ---------- Secondary Education ----------
+% \footnotesize 03.2009 -- 12.2013 &
+% \raisebox{0.30ex}{\href{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/school_sekundar/sekundarstufe_HZB.pdf}{\tiny[i]}} &
+% \footnotesize \textbf{Secondary Education}&
+% \textcolor{mygrey}{\tiny [Top 5\,\%]}    \footnotesize 16.0/20.0 \\[-0.7em]
+% &
+% &
+% \footnotesize \textbf{ \href{https://salesianos.pe/inspectoria/nuestras-obras/arequipa/}{Salesian School Don Bosco }}& \\[-0.15em]
+
+% % ---------- Primary School ----------
+% \footnotesize 03.2003 -- 12.2008 & &
+% \footnotesize \textbf{Primary School} &
+% \footnotesize 18.0/20.0  \\[-0.2em]
+% & &
+% \footnotesize Charles-Gauss School & \\
+
+\\[-2em]
+% ---------- Footnote ----------
+\multicolumn{4}{@{}r@{}}{\tiny \vspace{0.5em}
+\textcolor{linksoft}{\textit{Notes:} \tiny[i] View diploma/program status.}}\\[-0.2em]
+% \multicolumn{4}{@{}r@{}}{\tiny 
+% \textcolor{linksoft}{\tiny Both Master's programs: Language of instruction German.}}\\
+
+
+
+
+\end{tabular}

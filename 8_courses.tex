@@ -1,0 +1,85 @@
+% ================== GLOBAL LENGTHS ==================
+% Separators and spacing control
+\newlength{\ColSep}      % space between internal columns
+\newlength{\MidSep}      % space between the two halves (between the 2 cells of the outer table)
+\newlength{\RowTight}    % vertical compaction per row
+
+% NEW: Proportions for each half
+\newlength{\LeftWidth}   % total width of the left table
+\newlength{\RightWidth}  % total width of the right table
+
+% Column widths of the LEFT table (date, course, certificate)
+\newlength{\Ai}   % date (left)
+\newlength{\Bi}   % course (left)
+\newlength{\Ci}   % cert   (left)
+
+% Column widths of the RIGHT table (date, course, certificate)
+\newlength{\Aii}  % date (right)
+\newlength{\Bii}  % course (right)
+\newlength{\Cii}  % cert   (right)
+
+% ================== DEFAULT VALUES (ADJUST AS NEEDED) ==================
+\setlength{\ColSep}{0.4em}       % internal separation between columns
+\setlength{\MidSep}{0.8em}       % separation between the two halves
+\setlength{\RowTight}{0.1em}     % vertical compaction per row
+
+% HERE YOU DEFINE THE PROPORTIONS: left 40%, right 60%
+\setlength{\LeftWidth}{0.45\textwidth}
+\setlength{\RightWidth}{\dimexpr\textwidth - \LeftWidth - \MidSep\relax}
+
+% Left-side widths
+\setlength{\Ai}{0.9cm}
+\setlength{\Ci}{0.35cm}
+\setlength{\Bi}{\dimexpr \LeftWidth - \Ai - \Ci - 2\ColSep \relax}
+
+% Right-side widths
+\setlength{\Aii}{\Ai}
+\setlength{\Cii}{\Ci}
+\setlength{\Bii}{\dimexpr \RightWidth - \Aii - \Cii - 2\ColSep \relax}
+
+% ================== OUTER TABLE (1 ROW x 2 COLUMNS) ==================
+\noindent
+\begin{tabular}{@{}p{\LeftWidth}@{\hspace{\MidSep}}p{\RightWidth}@{}}
+% ================== LEFT CELL ==================
+\begin{minipage}[t]{\linewidth}\vspace{0pt}
+  \footnotesize
+  \begin{tabular}{@{}%
+    >{\raggedleft\arraybackslash}m{\Ai}%
+    @{\hspace{\ColSep}}%
+    >{\RaggedRight\arraybackslash}m{\Bi}%
+    @{\hspace{\ColSep}}%
+    >{\centering\arraybackslash}m{\Ci}@{}}
+
+  % -------- LEFT-SIDE ROWS --------
+  2024 & German Courses B2, C1 (\inst{https://www.vh-ulm.de/}{Ulm vhs} \& \inst{https://www.berlitz.de}{Berlitz}) & \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/german/testdaf-digital-certificate-scale.pdf} \\[\RowTight]
+  2022 & Leadership and Soft Skills (\inst{https://www.ucsp.edu.pe}{UCSP}) & \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/courses/Leadership_soft_skills.pdf} \\[\RowTight]
+  % 2022 & SQL (\inst{https://www.newhorizons.com}{New Horizons}) & \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/courses/SQL_new_horizons.pdf} \\[\RowTight]
+  % 2021 & Python for Data Science (\inst{https://www.socialdataconsulting.com}{SDC}) & \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/courses/Python_data_science.pdf} \\[\RowTight]
+  2021 & Hydraulic Systems (\inst{https://www.boschrexroth.com}{Bosch Rexroth}) & \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/courses/Rexroth_certificates.pdf} \\[\RowTight]
+  2019 & Pipeline Calculation (\inst{https://www.eadic.com}{EADIC}) & \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/courses/Design_industrial_plants_eadic.pdf} \\[\RowTight]
+
+  \end{tabular}
+\end{minipage}
+&
+% ================== RIGHT CELL ==================
+\begin{minipage}[t]{\linewidth}\vspace{0pt}
+  \footnotesize
+  \begin{tabular}{@{}%
+    >{\raggedleft\arraybackslash}m{\Aii}%
+    @{\hspace{\ColSep}}%
+    >{\RaggedRight\arraybackslash}m{\Bii}%
+    @{\hspace{\ColSep}}%
+    >{\centering\arraybackslash}m{\Cii}@{}}
+
+  % -------- RIGHT-SIDE ROWS --------
+  2020 & Structural \& Multiphysics Analysis with FEM (\inst{https://www.esss.co}{ESSS}) & \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/courses/ANSYS_Courses.pdf} \\[\RowTight]
+  2019 & Industrial Plant Systems (\inst{https://www.tecsup.edu.pe}{TECSUP}) & \cert{https://academico-cloud.tecsup.edu.pe/pcc/\#/home/certificado?c=350995\&n=AQP\%2FPCC\%2F17\%2F7778\&t=E} \\[\RowTight]
+  2019 & Autodesk Nastran – FEM \& CFD (\inst{https://www.autodesk.com/de}{Autodesk}) & \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/courses/Inventor_nastran.pdf} \\[\RowTight]
+  2019 & Autodesk Inventor – CAD (\inst{https://www.autodesk.com/de}{Autodesk}) & \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/courses/Inventor_certificate.pdf} \\[\RowTight]
+  2018 & Process Improvement (\inst{https://www.proavance.com}{Proavance}) & \cert{https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/courses/Process_management_improvement.pdf} \\[\RowTight]
+      &                                                           & \\[-1em]
+  \multicolumn{3}{@{}r@{}}{\tiny \textcolor{linksoft}{\textit{Notes:} [Z] Certificate}}\\
+  \end{tabular}
+\end{minipage}
+\\ % end of the single row of the outer table
+\end{tabular}

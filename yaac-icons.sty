@@ -1,0 +1,62 @@
+% yaac-icons.sty - Extracted icons and social commands from yaac-another-awesome-cv
+\ProvidesPackage{yaac-icons}[2025/08/31 Icons from YAAC CV]
+
+\RequirePackage{xcolor}
+\RequirePackage{fontawesome}
+\RequirePackage{hyperref}
+
+% Define colors (you can override later)
+\definecolor{symbolcolor}{HTML}{000066}
+\definecolor{linkcolor}{HTML}{000066}
+
+% Icon aliases
+\newcommand{\mailSymbol}{\faAt}
+\newcommand{\locationSymbol}{\faMapMarker}
+\newcommand{\infoSymbol}{\faInfo}
+\newcommand{\linkedinSymbol}{\faLinkedin}
+\newcommand{\mobileSymbol}{\faMobilePhone}
+\newcommand{\githubSymbol}{\faGithub}
+\newcommand{\permitSymbol}{\faSuitcase}
+
+
+% Generic link
+\newcommand{\link}[2]{\textcolor{linkcolor}{\href{#1}{#2}}}
+
+
+% Social formats
+% \newcommand{\socialtext}[2]{%
+%   \begin{tabular}[t]{@{}ll@{}}%
+%     \textcolor{symbolcolor}{#1}\hspace{0.6em} & \begin{tabular}[t]{@{}l@{}}#2\end{tabular}%
+%   \end{tabular}\hspace{1em}%
+% }
+\newcommand{\socialtext}[2]{%
+  \mbox{%
+    \textcolor{symbolcolor}{#1}\hspace{0.3em}#2%
+  }\hspace{1em}%
+}
+
+
+\newcommand{\sociallink}[3]{\mbox{\textcolor{symbolcolor}{#1}\hspace{0.5em}\link{#2}{#3}\hspace{1em}}}
+
+% Shortcuts
+\newcommand*{\linkedin}[1]{\sociallink{\linkedinSymbol}{#1}{LinkedIn}}
+\newcommand*{\github}[1]{\sociallink{\githubSymbol}{#1}{GitHub}}
+
+
+% Personal website (uses globe icon)
+\newcommand*{\personalwebsite}[1]{\sociallink{\faGlobe}{#1}{Website}}
+
+\newcommand*{\email}[1]{\sociallink{\mailSymbol}{mailto:#1}{#1}}
+\newcommand*{\website}[2]{\sociallink{\faExternalLink}{#1}{#2}}
+\newcommand*\smartphone[1]{\socialtext{\mobileSymbol}{#1}}
+\newcommand*{\address}[1]{\socialtext{\locationSymbol}{#1}}
+\newcommand*{\infos}[1]{\socialtext{\infoSymbol}{#1}}
+
+\newcommand*{\workpermit}[1]{%
+  \begin{tabular}[t]{@{}l@{\hspace{0.6em}}l@{}}%
+    \textcolor{symbolcolor}{\permitSymbol} &
+      \begin{tabular}[t]{@{}l@{}}%
+        Arb.-Erlaubnis DE – Vollzeit \link{#1}{[ID]}%
+      \end{tabular}%
+  \end{tabular}\hspace{1em}%
+}
