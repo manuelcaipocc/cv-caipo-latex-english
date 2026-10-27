@@ -1,0 +1,53 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-halt-on-error",
+        "%DOC%"
+      ],
+      "env": {}
+    }
+  ],
+
+  // Two passes so hyperlinks and PDF bookmarks resolve
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "XeLaTeX x2",
+      "tools": ["xelatex", "xelatex"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.message.badbox.show": "none",
+
+  // Problems panel: keep real errors, drop known-harmless noise
+  "latex-workshop.message.latexlog.exclude": [
+    "Font shape .* undefined",
+    "Some font shapes were not available",
+    "Token not allowed in a PDF string",
+    "Package fontspec Warning",
+    "Package hyperref Warning: Option",
+    "There were undefined references",
+    "Label\\(s\\) may have changed",
+    "Rerun to get"
+  ],
+  "latex-workshop.message.error.show": true,
+  "latex-workshop.message.warning.show": false,
+  "latex-workshop.message.information.show": false,
+  "latex-workshop.latex.build.clearLog.everyRecipeStep.enabled": true,
+  "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": true,
+
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  // glob avoids latexmk (needs Perl, not installed)
+  "latex-workshop.latex.clean.method": "glob",
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux", "*.out", "*.toc", "*.fls", "*.fdb_latexmk", "*.synctex.gz", "*.xdv"
+  ]
+}

@@ -2,27 +2,20 @@
 \usepackage[top=1.5cm, bottom=0.5cm, left=1.5cm, right=2cm]{geometry}
 
 \usepackage{graphicx}
-% \usepackage{url}
-% \usepackage{palatino}
 \usepackage{fontspec}
 \setmainfont{TeX Gyre Pagella}
 
 \usepackage{array}
-\usepackage{ragged2e}        % necesario para \RaggedRight en \newcolumntype
+\usepackage{ragged2e}
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{enumitem}
 
-% \usepackage{color}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 \usepackage{hyperref}
 \usepackage{yaac-icons}
-\usepackage[table]{xcolor}
 \usepackage{amssymb}
 \usepackage{booktabs}
-
-
-\usepackage{multirow}
 
 % \newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 
@@ -39,9 +32,6 @@
 \setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{0pt}
 \renewcommand\arraystretch{1}
-
-\usepackage{array,graphicx,multirow,ragged2e}
-\usepackage[table]{xcolor} % lädt colortbl mit
 
 \definecolor{background}{RGB}{216,228,236}
 \definecolor{mygrey}{gray}{0.75}
@@ -116,10 +106,8 @@
 
 
 \usepackage{tikz}
-\usetikzlibrary{calc,shadows.blur,decorations.pathmorphing,fadings}
-\usetikzlibrary{shadings}
-\usepackage{eso-pic}      % para dibujar sobre la página
-\usepackage{qrcode}       % para generar el código QR
+\usetikzlibrary{calc}
+\usepackage{eso-pic}
 
 
 \usepackage{needspace} % para reservar espacio y evitar saltos
@@ -204,59 +192,19 @@
 }
 
 
-% --- Topbar limpio, angosto y con QR a juego ---
 \newcommand{\FancyTopbar}{%
   \begin{tikzpicture}[remember picture,overlay]
-    % Alturas: más angosto y pegado arriba
-    \def\hOne{6mm}      % altura franja principal (antes 8mm)
-    \def\hTwo{12mm}     % alcance piezas diagonales (antes 16mm)
-    \def\overshoot{0.8pt} % evita micro-hueco en el borde superior
-
-    % Color del QR (ajústalo si quieres más contraste)
-    \colorlet{qrcolor}{myblue!15!white}
-
-    % Franja sólida superior (con overshoot)
-    \fill[myblue]
-      ($(current page.north west)+(0,\overshoot)$) rectangle
-      ($(current page.north east)+(0,-\hOne)$);
-
-    % Pieza diagonal clara (efecto geométrico, sin líneas)
-    \path[fill=background]
-      ($(current page.north east)+(0,-\hOne)$) --
-      ($(current page.north east)+(-6.2cm,-\hOne)$) --
-      ($(current page.north east)+(-4.6cm,-\hTwo)$) --
-      ($(current page.north east)+(0,-\hTwo)$) -- cycle;
-
-    % Transición sutil (puedes eliminarla si quieres 100% plano)
-    \path[shade, left color=accent, right color=myblue, opacity=0.85]
-      ($(current page.north east)+(-6.2cm,-\hOne)$) --
-      ($(current page.north east)+(-10.5cm,-\hOne)$) --
-      ($(current page.north east)+(-9.0cm,-\hTwo)$) --
-      ($(current page.north east)+(-4.6cm,-\hTwo)$) -- cycle;
-
-
+    \node[anchor=north west, inner sep=0pt]
+      at ($(current page.north west)+(0,0.8pt)$)
+      {\includegraphics[width=\paperwidth]{topbar_standalone.pdf}};
   \end{tikzpicture}%
 }
 
 \newcommand{\FancyQRBottom}{%
   \begin{tikzpicture}[remember picture,overlay]
-    % color del QR: en sintonía con tus enlaces (linksoft) o con myblue
-    \colorlet{qrcolor}{linksoft} % o: \colorlet{qrcolor}{myblue!20!white}
-
-    % Nodo en la esquina inferior derecha, con pequeño margen interior
-    \node[
-      anchor=south east,
-      inner sep=1mm,
-      fill=white,
-      draw=qrcolor,
-      line width=0.45pt,
-      rounded corners=1mm
-    ] at ($(current page.south east)+(-4mm,4mm)$) {%
-      \begingroup
-        \color{qrcolor}
-        \qrcode[height=10mm]{https://manuelcaipocc.github.io/}%
-      \endgroup
-    };
+    \node[anchor=south east, inner sep=0pt]
+      at ($(current page.south east)+(-4mm,4mm)$)
+      {\includegraphics{qr_standalone.pdf}};
   \end{tikzpicture}%
 }
 

@@ -1,0 +1,37 @@
+\documentclass[tikz,margin=0pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc,shadings}
+
+\definecolor{background}{RGB}{216,228,236}
+\definecolor{myblue}{RGB}{0,40,70}
+\definecolor{accent}{RGB}{0,140,200}
+
+\begin{document}
+\begin{tikzpicture}
+  % A4 width = 210mm, topbar height = 12mm
+  \def\pageW{210mm}
+  \def\hOne{6mm}
+  \def\hTwo{12mm}
+
+  % Invisible rectangle to set the bounding box
+  \path[use as bounding box] (0,0) rectangle (\pageW,\hTwo);
+
+  % Solid blue bar (top 6mm)
+  \fill[myblue]
+    (0,\hTwo) rectangle (\pageW,\hTwo-\hOne);
+
+  % Light diagonal piece (right side)
+  \path[fill=background]
+    (\pageW,\hTwo-\hOne) --
+    (\pageW-6.2cm,\hTwo-\hOne) --
+    (\pageW-4.6cm,0) --
+    (\pageW,0) -- cycle;
+
+  % Gradient transition piece
+  \path[shade, left color=accent, right color=myblue, opacity=0.85]
+    (\pageW-6.2cm,\hTwo-\hOne) --
+    (\pageW-10.5cm,\hTwo-\hOne) --
+    (\pageW-9.0cm,0) --
+    (\pageW-4.6cm,0) -- cycle;
+\end{tikzpicture}
+\end{document}

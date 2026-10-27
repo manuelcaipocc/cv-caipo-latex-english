@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mpm --list)",
+      "Bash(find \"/c/Users/MCAIPOC/AppData/Local/Programs/MiKTeX\" -iname \"FontAwesome.otf\" 2>/dev/null | head -5)",
+      "Read(//c/Users/MCAIPOC/AppData/Local/Programs/MiKTeX/**)",
+      "Bash(fc-list)",
+      "Bash(initexmf --show-config-value=AutoInstall)",
+      "Bash(initexmf --show-config-value=[MPM]AutoInstall)",
+      "Read(//c/Users/MCAIPOC/AppData/Roaming/MiKTeX/miktex/config/**)",
+      "Bash(initexmf --list-modes)",
+      "Bash(mpm --install=tex-gyre)",
+      "Bash(identify /c/0_Develop/0_cv_caipo/cv-caipo-latex-english/images/manuelcaipo.jpg)",
+      "Bash(magick --version)",
+      "Bash(python -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
+      "Bash(xelatex -interaction=nonstopmode topbar_standalone.tex)",
+      "Bash(xelatex -interaction=nonstopmode qr_standalone.tex)",
+      "Bash(xelatex -interaction=nonstopmode main.tex)",
+      "Bash(xelatex -interaction=nonstopmode -jobname=main_test main.tex)"
+    ]
+  }
+}

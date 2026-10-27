@@ -1,0 +1,21 @@
+\documentclass[margin=1mm]{standalone}
+\usepackage{tikz}
+\usepackage{qrcode}
+\usepackage{xcolor}
+
+\definecolor{linksoft}{RGB}{30,100,160}
+
+\begin{document}
+\begin{tikzpicture}
+  \node[
+    inner sep=1mm,
+    fill=white,
+    draw=linksoft,
+    line width=0.45pt,
+    rounded corners=1mm
+  ] {%
+    \color{linksoft}%
+    \qrcode[height=10mm]{https://manuelcaipocc.github.io/}%
+  };
+\end{tikzpicture}
+\end{document}
