@@ -25,6 +25,11 @@
 
   "latex-workshop.latex.autoBuild.run": "onSave",
   "latex-workshop.view.pdf.viewer": "tab",
+  // Standalone files also have \documentclass and confuse root detection
+  "latex-workshop.latex.search.rootFiles.exclude": [
+    "**/topbar_standalone.tex",
+    "**/qr_standalone.tex"
+  ],
   "latex-workshop.message.badbox.show": "none",
 
   // Problems panel: keep real errors, drop known-harmless noise
